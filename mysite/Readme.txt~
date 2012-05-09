@@ -84,4 +84,3 @@ def f(a, L=None):
 >>> parrot(**d)
 -- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
 
-#Interesting....when u type in import this

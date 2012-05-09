@@ -103,6 +103,11 @@ ROOT_URLCONF = 'mysite.urls'
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 TEMPLATE_DIRS = (
+ #   a better idea would be like this:
+ #   import os.path
+ #   os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+ #   but never mind, sicne this is my own small django app   
+    '/Users/zewenli/git/django/mysite//mysite/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
