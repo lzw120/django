@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <title>{% block title %}{% endblock %}</title>
+
+<style type="text/css">
+body
+{
+background-color:#d0e4fe;
+}
+</style>
+
 </head>
+
 <body>
-    <h1>My helpful timestamp site</h1>
+
+
+
+<link href="./mystyle.css" rel="stylesheet" type="text/css">
+    <h1>Welcome to Local Tweets</h1>
     {% block content %}{% endblock %}
     {% block footer %}
     <hr>

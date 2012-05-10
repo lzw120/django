@@ -27,7 +27,7 @@
 # that's much simpler than our say_hello
 from django.shortcuts import render_to_response
 import datetime
-
+import httplib, json
 
 def current_datetime(request):
     current_date = datetime.datetime.now()
@@ -41,5 +41,24 @@ def hours_ahead(request, offset):
 
 
 def say_hello(request):
-    person = {'last_name': 'Li', 'first_name':'Zewen'}
-    return render_to_response('try.html', {'person': person})
+    lattitude = request.POST.get('lattitude', '41')
+    longtitude = request.POST.get('longtitude', '74')
+    range_ = request.POST.get('range', '50')
+    
+    conn = httplib.HTTPConnection('search.twitter.com')
+    conn.request('GET', '/search.json?geocode=%s,%s,%smi&rpp=200&page=1' %(lattitude, longtitude, range_))
+    result = conn.getresponse()
+    resultstatus = result.status
+    resultcontent = result
+    data = json.load(resultcontent)
+    result_list = data['results']
+#    for l in result_list:
+#        print l['from_user'],':', l['from_user_name'].encode('ascii'), l['profile_image_url'], l['text'].encode('utf8')
+    conn.close()
+    return render_to_response('localtweets.html', {'item_list': result_list})
+
+def default (request):
+#    lattitude = request.POST.get('lattitude', '')
+#    longtitude = request.POST.get('longtitude', '')
+#    range_ = request.POST.get('range', '') 
+    return render_to_response('home.html', {})

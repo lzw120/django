@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Home page
+{% endblock %}
+
+{% block content %}
+<p>
+
+
+<form action= '/app/' method="post">
+Please specify your location.
+<br>
+<label>Lattitude <input type ="number" name="lattitude"></label>
+<br>
+<label>Longtitude <input type="number" name="longtitude"></label>
+<br>
+<label>Range <input type="number" name="range"> </label>
+<br>
+<input type="submit">
+</form>
+</p>
+{% endblock %}

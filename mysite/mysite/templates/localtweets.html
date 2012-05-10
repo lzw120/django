@@ -23,6 +23,7 @@ form="""
 {% block content %}
 <!-- <h1><center>Welcome to Local Tweets </center> </h1> -->
 <table>
+{% if item_list %}
 {% for item in item_list %}
 <tr>
 <td> <img src = {{item.profile_image_url}} alt = "Icon"> </td>
@@ -32,5 +33,12 @@ form="""
 </td>
 </tr>
 {% endfor %}
+
+{% else %}
+<h2> 
+Oops, there is no one tweetering anything on this location
+</h2>
+{% endif %}
+
 
 {% endblock %}

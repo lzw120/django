@@ -23,7 +23,6 @@
 #
 
 
-
 # let's use render_to_response()
 # that's much simpler than our say_hello
 from django.shortcuts import render_to_response
